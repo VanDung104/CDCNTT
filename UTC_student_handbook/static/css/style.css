@@ -1,0 +1,312 @@
+/* --- Global Styling --- */
+body {
+  font-family: "Be Vietnam Pro", sans-serif;
+  background-color: #fffef5;
+  color: #271756;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* --- Header --- */
+header {
+  background-color: #271756;
+  border-bottom: 3px solid #facb01;
+  padding-top: 0.75rem; /* Giảm padding trên */
+  padding-bottom: 0.75rem; /* Giảm padding dưới */
+}
+.logo {
+  max-height: 65px; /* Tăng kích thước logo */
+  border-radius: 8px; /* Thêm bo góc */
+}
+.py-4 {
+    padding-top: 1.5rem !important;
+    padding-bottom: 0.5rem !important;
+}
+/* --- Main Content Area --- */
+main.container {
+  flex-grow: 1; /* Cho phép main chiếm không gian thừa */
+  display: flex;
+  flex-direction: column;
+}
+
+/* --- Chat Container --- */
+.chat-container {
+  max-width: 800px;
+  margin: auto;
+  border-radius: 15px;
+  overflow: hidden;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1; /* Thay thế height và min-height để co giãn */
+  width: 100%;
+  box-shadow: 0 4px 12px rgba(39, 23, 86, 0.1);
+}
+
+.chat-box {
+  flex-grow: 1;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(to bottom, #fffef5, #ffffff);
+}
+
+/* --- Chat Messages --- */
+.chat-message {
+  max-width: 80%;
+  margin-bottom: 1rem;
+  display: flex;
+  flex-shrink: 0;
+}
+.message-content {
+  padding: 0.75rem 1.25rem;
+  border-radius: 20px;
+  line-height: 1.6;
+  word-wrap: break-word;
+  white-space: pre-wrap; /* Renders newlines */
+}
+
+/* User Messages (Right) */
+.chat-message.user {
+  align-self: flex-end;
+  flex-direction: row-reverse;
+}
+.user .message-content {
+  background: linear-gradient(135deg, #facb01 0%, #ffd84d 100%);
+  color: #271756;
+  border-bottom-right-radius: 5px;
+  font-weight: 500;
+}
+
+/* Bot Messages (Left) */
+.chat-message.bot {
+  align-self: flex-start;
+}
+.bot .message-content {
+  background-color: #271756;
+  color: #fffba2;
+  border-bottom-left-radius: 5px;
+  border: 1px solid #3d2875;
+}
+
+/* Sửa lỗi Markdown: Đảm bảo các thẻ <ul>, <ol>, <p> bên trong bot có style đúng */
+.bot .message-content p {
+  margin-bottom: 0.5rem; /* Thêm khoảng cách giữa các đoạn */
+  color: #fffba2; /* Đảm bảo màu chữ đúng */
+}
+.bot .message-content p:last-child {
+  margin-bottom: 0;
+}
+.bot .message-content ul,
+.bot .message-content ol {
+  margin-left: 20px; /* Thụt lề cho danh sách */
+  color: #fffba2;
+}
+
+
+/* Typing Indicator */
+.typing-indicator {
+  display: flex;
+  align-items: center;
+}
+.typing-indicator span {
+  height: 10px;
+  width: 10px;
+  background-color: #facb01;
+  border-radius: 50%;
+  display: inline-block;
+  margin: 0 2px;
+  animation: bounce 1.4s infinite ease-in-out both;
+}
+.typing-indicator span:nth-of-type(2) {
+  animation-delay: 0.2s;
+}
+.typing-indicator span:nth-of-type(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes bounce {
+  0%,
+  80%,
+  100% {
+    transform: scale(0);
+  }
+  40% {
+    transform: scale(1);
+  }
+}
+
+/* --- Chat Input --- */
+.chat-input-area {
+  border-top: 2px solid #facb01;
+  background-color: #fffef5;
+}
+#question-input {
+  border: 2px solid #fffba2;
+  background-color: #ffffff;
+}
+#question-input:focus {
+  box-shadow: 0 0 0 0.25rem rgba(250, 203, 1, 0.25);
+  border-color: #facb01;
+}
+#submit-button,
+#image-search-button,
+#upload-pdf-button { /* Thêm nút upload vào nhóm */
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 600;
+}
+
+/* Nút Gửi */
+#submit-button {
+  background-color: #facb01;
+  border-color: #facb01;
+  color: #271756;
+}
+#submit-button:hover {
+  background-color: #e8b800;
+  border-color: #e8b800;
+  color: #271756;
+}
+
+/* Nút Tìm Ảnh */
+#image-search-button {
+  background-color: #6c757d;
+  border-color: #6c757d;
+  color: #ffffff;
+}
+#image-search-button:hover {
+  background-color: #5a6268;
+  border-color: #545b62;
+}
+
+/* (MỚI) Nút Upload */
+#upload-pdf-button {
+  background-color: #ffc107; /* Màu vàng cam */
+  border-color: #ffc107;
+  color: #271756;
+}
+#upload-pdf-button:hover {
+  background-color: #e0a800;
+  border-color: #d39e00;
+}
+
+#submit-button:focus,
+#image-search-button:focus,
+#upload-pdf-button:focus { /* Thêm nút upload */
+  box-shadow: 0 0 0 0.25rem rgba(250, 203, 1, 0.5);
+}
+
+
+/* --- Image Results --- */
+.search-result-image {
+  max-width: 100%;
+  border-radius: 10px;
+  margin-top: 10px;
+  border: 2px solid #facb01;
+  cursor: zoom-in; /* Đổi con trỏ khi di chuột qua ảnh */
+  transition: transform 0.2s ease;
+}
+
+.search-result-image:hover {
+  transform: scale(1.02); /* Phóng to nhẹ khi hover */
+}
+
+.image-caption {
+  font-size: 0.85rem;
+  color: #ffffff;
+  opacity: 0.8;
+  margin-bottom: 0;
+  font-style: italic;
+}
+
+/* --- Image Modal (Lightbox for Zooming) --- */
+.image-modal {
+  display: none; /* Mặc định ẩn đi */
+  position: fixed; /* Hiển thị đè lên mọi thứ */
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.9); /* Lớp phủ màu đen mờ */
+  cursor: pointer; /* Thay đổi con trỏ để báo hiệu có thể click để đóng */
+}
+
+.modal-content {
+  margin: auto;
+  display: block;
+  max-width: 90%;
+  max-height: 90%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* --- (MỚI) Upload Modal --- */
+.upload-modal {
+  display: none; /* Ẩn mặc định */
+  position: fixed;
+  z-index: 1050;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.5); /* Lớp nền mờ */
+  animation: fadeIn 0.3s;
+}
+
+.upload-modal-content {
+  background-color: #fefefe;
+  color: #271756;
+  margin: 10% auto;
+  padding: 0;
+  border: 1px solid #888;
+  width: 90%;
+  max-width: 500px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  animation: slideIn 0.3s;
+}
+
+.upload-modal-header {
+  padding: 1rem 1rem;
+  background-color: #271756;
+  color: #fffba2;
+  border-bottom: 2px solid #facb01;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top-left-radius: 9px;
+  border-top-right-radius: 9px;
+}
+
+.upload-modal-title {
+  margin-bottom: 0;
+  font-weight: 700;
+}
+
+.upload-modal-body {
+  padding: 1.5rem;
+}
+
+.upload-status {
+  font-size: 0.9rem;
+  margin-top: 1rem;
+}
+
+/* Keyframes cho hiệu ứng */
+@keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+@keyframes slideIn {
+  from {transform: translateY(-50px); opacity: 0;}
+  to {transform: translateY(0); opacity: 1;}
+}
