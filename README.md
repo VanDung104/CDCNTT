@@ -1,4 +1,4 @@
-<img width="1107" height="540" alt="image" src="https://github.com/user-attachments/assets/65ee8c63-d8c9-4c3d-9c4f-8f99d7468acf" /># 🎓 UTC Student Handbook Assistant (AI Chatbot)
+# 🎓 UTC Student Handbook Assistant (AI Chatbot)
 
 An intelligent assistant designed to help students of the University of Transport and Communications (UTC) quickly find information from the **Student Handbook**. 
 
