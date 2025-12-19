@@ -5,7 +5,6 @@ An intelligent assistant designed to help students of the University of Transpor
 Unlike traditional keyword search, this system uses **RAG (Retrieval-Augmented Generation)** to understand natural language questions and **Multimodal Retrieval** to find relevant charts, diagrams, and images within the documents.
 
 ![Project Screenshot](screenshot/screenshot1.png) 
-*(Note: Replace this with a screenshot of your chat interface)*
 
 ## 🚀 Key Features
 
